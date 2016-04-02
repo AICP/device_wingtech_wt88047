@@ -1,10 +1,22 @@
 [
   {
-    "repository": "android_device_cyanogen_msm8916-common",
-    "target_path": "device/cyanogen/msm8916-common"
+    "repository":  "ssawrav/android_device_cyanogen_msm8916-common",
+    "target_path": "device/cyanogen/msm8916-common",
+    "branch":      "cm13.0"
   },
   {
-    "repository": "android_external_stlport",
-    "target_path": "external/stlport"
+   "repository":  "ssawrav/android_kernel_cyanogen_msm8916",
+   "target_path": "kernel/cyanogen/msm8916",
+   "branch":      "cm-13.0-wt88047"
+  },
+  {
+   "repository": "CyanogenMod/android_external_stlport",
+   "target_path": "external/stlport",
+   "branch": "cm-13.0"
+  },
+  {
+   "repository":  "ssawrav/proprietary_vendor_wingtech",
+   "target_path": "vendor/wingtech",
+   "branch":      "cm-13.0"
   }
 ]
