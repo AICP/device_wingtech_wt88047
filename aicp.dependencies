@@ -5,7 +5,7 @@
     "branch":      "cm-13.0"
   },
   {
-   "repository":  "ssawrav/android_kernel_cyanogen_msm8916",
+   "repository":  "ssawrav/android_kernel_wingtech_msm8916",
    "target_path": "kernel/cyanogen/msm8916",
    "branch":      "cm-13.0-wt88047"
   },
