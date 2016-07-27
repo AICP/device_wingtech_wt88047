@@ -7,7 +7,7 @@
   {
    "repository":  "ssawrav/android_kernel_wingtech_msm8916",
    "target_path": "kernel/cyanogen/msm8916",
-   "branch":      "cm-13.0-wt88047"
+   "branch":      "ik"
   },
   {
    "repository": "CyanogenMod/android_external_stlport",
