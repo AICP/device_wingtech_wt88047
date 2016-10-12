@@ -1,22 +1,17 @@
 [
   {
-    "repository":  "ssawrav/android_device_cyanogen_msm8916-common",
-    "target_path": "device/cyanogen/msm8916-common",
-    "branch":      "cm-13.0-new"
-  },
-  {
-   "repository":  "ssawrav/android_kernel_wingtech_msm8916",
-   "target_path": "kernel/cyanogen/msm8916",
-   "branch":      "ik"
+   "repository":  "ssawrav/Xiaomi_Kernel_OpenSource",
+   "target_path": "kernel/wingtech/msm8916",
+   "branch":      "ik4.0N"
   },
   {
    "repository": "CyanogenMod/android_external_stlport",
    "target_path": "external/stlport",
-   "branch": "cm-13.0"
+   "branch": "cm-14.0"
   },
   {
-   "repository":  "ssawrav/proprietary_vendor_wingtech",
+   "repository":  "ssawrav/proprietary_vendor_wingtech-N",
    "target_path": "vendor/wingtech",
-   "branch":      "cm-13.0"
+   "branch":      "n7.0-caf"
   }
 ]
