@@ -2,7 +2,7 @@
   {
    "repository":  "ssawrav/Xiaomi_Kernel_OpenSource",
    "target_path": "kernel/wingtech/msm8916",
-   "branch":      "ik4.0N"
+   "branch":      "ik-4.0N"
   },
   {
    "repository": "CyanogenMod/android_external_stlport",
