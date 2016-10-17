@@ -10,6 +10,11 @@
    "branch": "cm-14.0"
   },
   {
+   "repository": "CyanogenMod/android_device_qcom_common",
+   "target_path": "device/qcom/common",
+   "branch": "cm-14.0"
+  },
+  {
    "repository":  "ssawrav/proprietary_vendor_wingtech-N",
    "target_path": "vendor/wingtech",
    "branch":      "n7.0-caf"
