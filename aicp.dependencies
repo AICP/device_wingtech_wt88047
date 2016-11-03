@@ -7,12 +7,12 @@
   {
    "repository": "CyanogenMod/android_external_stlport",
    "target_path": "external/stlport",
-   "branch": "cm-14.0"
+   "branch": "cm-14.1"
   },
   {
    "repository": "CyanogenMod/android_device_qcom_common",
    "target_path": "device/qcom/common",
-   "branch": "cm-14.0"
+   "branch": "cm-14.1"
   },
   {
    "repository":  "ssawrav/proprietary_vendor_wingtech-N",
