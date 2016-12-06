@@ -17,6 +17,6 @@
   {
    "repository":  "ssawrav/proprietary_vendor_wingtech-N",
    "target_path": "vendor/wingtech",
-   "branch":      "n7.0-caf"
+   "branch":      "ims"
   }
 ]
