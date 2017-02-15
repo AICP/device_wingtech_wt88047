@@ -26,14 +26,17 @@
 #
 
 import init.qcom.power.rc
+import init.qcom.ssr.rc
 import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug mode=755
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
     symlink /data/tombstones /tombstones
+
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
 
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
@@ -52,6 +55,7 @@ on fs
 # msm specific files that need to be created on /data
 on post-fs-data
 
+    mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
 
     #Create PERFD deamon related dirs
@@ -86,17 +90,12 @@ on post-fs-data
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
-
     mkdir /data/connectivity/nsrm 0771 system system
-    chown system system /data/connectivity/nsrm
 
     # Create the directories used by DPM subsystem
     mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
     mkdir /data/dpm/fdMgr 0771 system system
-    chown system system /data/dpm/fdMgr
+    mkdir /data/dpm/nsrm 0771 system system
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
@@ -154,7 +153,7 @@ on post-fs-data
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
-    mkdir /data/diag_logs 0777 system system 5
+    mkdir /data/diag_logs 0777 system system
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -201,14 +200,6 @@ on boot
 
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
-
-    #Set SUID bit for usbhub
-    chmod 4755 /system/bin/usbhub
-    chmod 755 /system/bin/usbhub_init
-
-    #Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
@@ -260,20 +251,28 @@ on boot
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
 
-    # color
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
-
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
     mkdir /persist/display 0770 system graphics
+
+    # Graphics node permissions
+    chmod 0664 /sys/class/graphics/fb0/dyn_pu
+    chmod 0664 /sys/class/graphics/fb0/dynamic_fps
+    chmod 0664 /sys/class/graphics/fb0/idle_time
+    chmod 0664 /sys/class/graphics/fb0/mode
+    chmod 0664 /sys/class/graphics/fb0/modes
+
+    chown system graphics /sys/class/graphics/fb0/dyn_pu
+    chown system graphics /sys/class/graphics/fb0/dynamic_fps
+    chown system graphics /sys/class/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/mode
+    chown system graphics /sys/class/graphics/fb0/modes
 
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
 on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
-    start config_bluetooth
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
@@ -286,11 +285,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-
-service rfs_access /system/bin/rfs_access
-   class core
-   user system
-   group system net_raw
+    group wakelock
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
@@ -298,11 +293,13 @@ service config_bt_addr /system/bin/btnvtool -O
     group bluetooth radio
     oneshot
 
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    seclabel u:r:bluetooth_loader:s0
-    oneshot
+service cnd /system/bin/cnd
+    class late_start
+    socket cnd stream 660 root inet
+
+service dpmd /system/bin/dpmd
+    class main
+    socket dpmd stream 660 root system
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
@@ -326,10 +323,17 @@ on property:hw.fm.init=1
 service qmuxd /system/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps qcom_diag
+    group radio audio bluetooth gps qcom_diag wakelock
+
+service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/bin/netmgrd
     class main
+    group system wakelock
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -419,6 +423,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+    writepid /dev/cpuset/system-background/tasks
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -437,6 +442,7 @@ service perfd /vendor/bin/perfd
    user root
    group root readproc
    disabled
+   writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
