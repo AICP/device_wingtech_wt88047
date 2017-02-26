@@ -100,23 +100,22 @@ vendor/lib/libchromatix_ov8865_sunny_liveshot.so
 vendor/lib/libchromatix_ov8865_sunny_preview.so
 vendor/lib/libchromatix_ov8865_sunny_snapshot.so
 
-# Camera Firmware
+# Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
-# Camera Sensors
+# Camera Sensor
 vendor/lib/libmmcamera_ov2680_5987fhq.so
 vendor/lib/libmmcamera_ov2680_skuhf.so
 vendor/lib/libmmcamera_ov8865_q8v18a.so
-
-# Camera Eeprom
 vendor/lib/libmmcamera_sunny_q8v18a_eeprom.so
 
 # DRM
 bin/qseecomd
 lib/libdrmdecrypt.so
+vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libprdrmdecrypt.so
 vendor/lib/libtzplayready.so
 vendor/lib/libdrmfs.so
@@ -124,22 +123,39 @@ vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
+bin/loc_launcher
+etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.xml
+framework/com.qti.location.sdk.jar
 -lib/libloc_api_v02.so
 -lib/libloc_ds_api.so
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/lib/hw/flp.default.so
+vendor/lib/libdataitems.so
 vendor/lib/libflp.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
+vendor/lib/liblocationservice_glue.so
+vendor/lib/liblowi_client.so
+vendor/lib/libquipc_os_api.so
+vendor/lib/libulp2.so
+vendor/lib/libxtadapter.so
+vendor/lib/libxtwifi_ulp_adaptor.so
 
 # Compass
 vendor/lib/libcalmodule_akm.so
 vendor/lib/libcalmodule_yamaha.so
 vendor/lib/libcalmodule_gyroscope.so
 
-# Graphics Firmware
+# Graphics firmware
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 
@@ -173,6 +189,7 @@ vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpdaemoninterface.so
 vendor/lib/lib-rtpsl.so
+vendor/lib/libNimsWrap.so
 vendor/lib/libimscamera_jni.so
 vendor/lib/libimsmedia_jni.so
 vendor/lib/libvoice-svc.so
@@ -190,7 +207,6 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libSHIMDivxDrm.so
 
 # Perf
-vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
@@ -200,7 +216,7 @@ vendor/lib/libdisp-aba.so
 vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-qdcm.so
 
-# Qualcomm Framework
+# Qualcomm framework
 bin/irsc_util
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
@@ -221,6 +237,7 @@ vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
@@ -232,7 +249,6 @@ etc/permissions/qcrilhook.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 vendor/lib/libcneapiclient.so
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -248,18 +264,11 @@ vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
-# Time Services
+# Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
-
-# Widevine DRM
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/mediadrm/libwvdrmengine.so
 
 # WLAN
 lib/libwcnss_qmi.so

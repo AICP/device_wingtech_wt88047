@@ -51,9 +51,9 @@
     <ctl name="TTY Mode" value="Off" />
     <ctl name="HPHL Volume" value="9" />
     <ctl name="HPHR Volume" value="9" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
+    <ctl name="RX1 Digital Volume" value="88" />
+    <ctl name="RX2 Digital Volume" value="88" />
+    <ctl name="RX3 Digital Volume" value="88" />
     <ctl name="IIR1 INP1 Volume" value="84" />
     <ctl name="IIR1 INP2 Volume" value="84" />
     <ctl name="IIR1 INP3 Volume" value="84" />
@@ -794,18 +794,6 @@
 
     <path name="ADSP testfwk">
         <ctl name="MI2S_DL_HL Switch" value="1" />
-    </path>
-
-    <path name="line">
-          <path name="headphones" />
-    </path>
-
-    <path name="voice-line">
-          <path name="voice-headphones" />
-    </path>
-
-    <path name="speaker-and-line">
-          <path name="speaker-and-headphones" />
     </path>
 
 </mixer>
