@@ -1,8 +1,8 @@
 [
   {
-   "repository":  "dirtyredmi2/kernel",
+   "repository":  "dirtyredmi2/android_kernel_wingtech_msm8916",
    "target_path": "kernel/wingtech/msm8916",
-   "branch":      "master"
+   "branch":      "ik-6.0"
   },
   {
    "repository": "LineageOS/android_external_stlport",
@@ -15,7 +15,7 @@
    "branch": "cm-14.1"
   },
   {
-   "repository":  "TheMuppets/proprietary_vendor_qcom_binaries",
+   "repository":  "ssawrav/proprietary_vendor_qcom_binaries",
    "target_path": "vendor/qcom/binaries",
    "branch":      "cm-14.1"
   },
