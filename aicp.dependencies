@@ -2,7 +2,7 @@
   {
    "repository":  "dirtyredmi2/android_kernel_wingtech_msm8916",
    "target_path": "kernel/wingtech/msm8916",
-   "branch":      "ik-6.0"
+   "branch":      "ik"
   },
   {
    "repository": "LineageOS/android_external_stlport",
