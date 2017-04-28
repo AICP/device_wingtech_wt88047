@@ -511,5 +511,5 @@ service qti_ims /system/bin/sh /init.qti.ims.sh
 # This fixes broken data connection on netmgrd crash
 on property:sys.boot_completed=1
     restart ril-daemon
-    restart ril-daemon2
     restart netmgrd
+

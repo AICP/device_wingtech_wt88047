@@ -31,7 +31,7 @@ ro.opengles.version=196608
 debug.enable.sglscale=1
 
 # FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
+#ro.frp.pst=/dev/block/bootdevice/by-name/config
 
 # GPS
 persist.gps.qc_nlp_in_use=0
@@ -99,10 +99,6 @@ persist.timed.enable=true
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
 
-# Camera
-media.stagefright.legacyencoder=true
-media.stagefright.less-secure=true
-
 # IMS
 persist.radio.jbims=1
 persist.radio.ROTATION_ENABLE=1
@@ -117,4 +113,7 @@ ro.device.gpu=Adreno 306
 ro.device.rear_cam=8 MP
 ro.device.front_cam=2 MP
 ro.device.screen_res=720x1280
-ro.product.device=Redmi 2
+ro.product.device=wt88047
+
+# Google assistant
+ro.opa.eligible_device=true

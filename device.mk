@@ -111,10 +111,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     memtrack.msm8916
 
-# Doze mode
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
@@ -134,12 +130,6 @@ PRODUCT_COPY_FILES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
-
-# Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.gps.qc_nlp_in_use=1 \
-    persist.loc.nlp_name=com.qualcomm.location \
-    ro.gps.agps_provider=1
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -275,10 +265,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.target=dpm1 \
     persist.data.qmi.adb_logmask=0
 
-# Telephony-ext
-PRODUCT_PACKAGES += telephony-ext ims-ext-common
-PRODUCT_BOOT_JARS += telephony-ext
-
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
@@ -319,8 +305,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # WiFi Display
 ifneq ($(QCPATH),)
@@ -331,18 +316,10 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
-# IMS
-PRODUCT_PACKAGES += \
-    ims \
-    imscmlibrary \
-    imssettings \
-    init.qti.ims.sh
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ims/imscm.xml:system/etc/permissions/imscm.xml \
-    $(LOCAL_PATH)/configs/ims/ims.xml:system/etc/permissions/ims.xml \
-    $(LOCAL_PATH)/configs/ims/qti_permissions.xml:system/etc/permissions/qti_permissions.xml
-
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# Doze mode
+PRODUCT_PACKAGES += \
+    XiaomiDoze
