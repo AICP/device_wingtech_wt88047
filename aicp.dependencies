@@ -15,13 +15,8 @@
    "branch": "cm-14.1"
   },
   {
-   "repository":  "ssawrav/proprietary_vendor_qcom_binaries",
-   "target_path": "vendor/qcom/binaries",
-   "branch":      "cm-14.1"
-  },
-  {
-   "repository":  "ssawrav/proprietary_vendor_wingtech-N",
+   "repository":  "ssawrav/vendor_wingtech",
    "target_path": "vendor/wingtech",
-   "branch":      "ims"
+   "branch":      "n7.1"
   }
 ]
