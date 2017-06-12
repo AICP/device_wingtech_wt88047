@@ -2,11 +2,16 @@
   {
    "repository":  "dirtyredmi2/android_kernel_wingtech_msm8916",
    "target_path": "kernel/wingtech/msm8916",
-   "branch":      "ik"
+   "branch":      "stable"
   },
   {
    "repository": "LineageOS/android_external_stlport",
    "target_path": "external/stlport",
+   "branch": "cm-14.1"
+  },
+  {
+   "repository": "LineageOS/android_external_sony_boringssl-compat",
+   "target_path": "external/boringssl-compat",
    "branch": "cm-14.1"
   },
   {
