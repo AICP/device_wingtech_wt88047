@@ -1,6 +1,6 @@
 [
   {
-   "repository":  "dirtyredmi2/android_kernel_wingtech_msm8916",
+   "repository":  "ssawrav/android_kernel_wingtech_msm8916",
    "target_path": "kernel/wingtech/msm8916",
    "branch":      "stable"
   },
